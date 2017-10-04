@@ -1,20 +1,25 @@
-Die die_a, die_b;
+Die[] coolDice;
 
 void setup() {
   noLoop();
   background(255);
   size(300, 300);
-  for(int y = 0; y < 250; y += 75) {
-    for(int x = 0; x < 250; x += 75) {
-      die_a = new Die(x, y);
-    }
+  coolDice = new Dice[9];
+  for(int i = 0; i < coolDice.length; i++) {
+    for(int y = 0; y < 250; y += 75) {
+      for(int x = 0; x < 250; x += 75) {
+        coolDice[i] = new Die(x, y);
+      }
+    }    
   }
 }
 
 void draw() {    
   background(255);
-  die_a.roll();
-  die_a.show();
+  for(int i = 0; i < coolDice.length; i++) {
+    coolDice[i].roll();
+    coolDice[i].show();    
+  }
 }
 
 void mousePressed() {    
